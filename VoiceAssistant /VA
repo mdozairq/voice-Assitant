@@ -1,0 +1,66 @@
+import pyttsx3
+import os
+import speech_recognition as sr
+
+pyttsx3.speak("hey Ozair, What I can do for you")
+
+
+while True:
+    pyttsx3.speak("please speak, chat with your requirement")
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print('Start sayin..')
+        audio = r.listen(source)
+        print('speech done')
+
+        print("We are working on it :" ,end='')
+        p1 = r.recognize_google(audio)
+        p = p1.lower()
+        print(p)
+
+        if (("run" in p) or ("start" in p) or ("open" in p)) and (("chrome" in p) or ("browser" in p)):
+            os.system("start chrome")
+
+        elif (("run" in p) or ("start" in p) or ("open" in p))  and (("notepad" in p) or ("editor" in p)):
+            os.system("notepad")
+
+        elif (("run" in p) or ("start" in p) or ("open" in p))  and (("media player" in p) or ("Video" in p)):
+            os.system("start wmplayer")
+            
+        elif (("run" in p) or ("start" in p) or ("open" in p)) and (("paint" in p) or ("mspaint" in p)):
+            os.system("start mspaint")
+            
+        elif (("run" in p) or ("start" in p) or ("open" in p)) and (("word" in p) or ("msword" in p)):
+            os.system("start winword")
+            
+        elif (("run" in p) or ("start" in p) or ("open" in p)) and (("excel" in p) or ("msexcel" in p)):
+            os.system("start excel")
+            
+        elif (("run" in p) or ("start" in p) or ("open" in p)) and (("point" in p) or ("power" in p)):
+            os.system("start powerpnt")
+            
+        elif (("take me" in p) or ("goto" in p) or ("open" in p)) and (("setting" in p) or ("control panel" in p)):
+            os.system("control")
+
+        elif (("run" in p) or ("start" in p) or ("open" in p)) and (("one note" in p) or ("ms one note" in p)):
+            os.system("start onenote")
+            
+        elif ((("run" in p) or ("start" in p) or ("open" in p)) and ("firefox" in p)):
+            os.system("start firefox")
+        
+        elif (("play" in p) or ("start" in p) or ("sing" in p)) and (("song" in p) or ("music")):
+            os.system("start spotify")
+        
+        elif (("run" in p) or ("start" in p) or ("open" in p)) and (("cmd" in p) or ("prompt")):
+            os.system("start cmd")
+        
+        elif (("run" in p) or ("start" in p) or ("open" in p)) and (("vs" in p) or ("virtual studio") or ("code")):
+            os.system("start code")
+
+        elif ("exit" in p) or ("close" in p) or ("quit" in p) or("shut up"):
+            pyttsx3.speak("thankyou for using me")
+            print("closed")
+            break
+
+        else:
+            print("don't Support")
